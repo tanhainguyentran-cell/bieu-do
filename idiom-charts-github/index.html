@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#187c68"><meta name="description" content="Sáu biểu đồ thành ngữ, dùng phần trăm hoặc số lần, có nhãn tiếng Trung và tải ảnh."><title>成语研究 · Sáu biểu đồ</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body><div class="shell">
+<header class="topbar"><div class="brand"><div class="brand-mark" aria-hidden="true">图</div><div class="brand-name">成语研究 <span>Chinese Idiom Charts</span></div></div><div class="tag"><i></i>6 biểu đồ · Nhãn tiếng Trung</div></header>
+<section class="intro"><div><p class="eyebrow">Dữ liệu nghiên cứu thành ngữ</p><h1>Sáu hình theo cùng một mẫu trình bày.</h1><p>Ba biểu đồ dùng %, ba biểu đồ dùng số lần. Chọn ảnh có hoặc không có tiêu đề trước khi tải.</p></div><div class="intro-aside">Dữ liệu nguồn: 100 mục.<br>Tiêu đề hình và nguồn bằng tiếng Trung.</div></section>
+<nav class="chart-nav" role="tablist" aria-label="Chọn một trong sáu biểu đồ">
+<button id="group-semantic" role="tab" aria-selected="true" aria-controls="chart-view" data-group="semantic"><small>01</small>语义分类</button>
+<button id="group-mechanism" role="tab" aria-selected="false" aria-controls="chart-view" data-group="mechanism" tabindex="-1"><small>02</small>意义机制</button>
+<button id="group-culture" role="tab" aria-selected="false" aria-controls="chart-view" data-group="culture" tabindex="-1"><small>03</small>文化价值</button>
+<button id="group-discourse" role="tab" aria-selected="false" aria-controls="chart-view" data-group="discourse" tabindex="-1"><small>04</small>话语功能</button>
+<button id="group-politics" role="tab" aria-selected="false" aria-controls="chart-view" data-group="politics" tabindex="-1"><small>05</small>政治信息</button>
+<button id="group-origin" role="tab" aria-selected="false" aria-controls="chart-view" data-group="origin" tabindex="-1"><small>06</small>来源分类</button>
+</nav>
+<main class="workspace">
+<aside class="controls panel" aria-label="Tùy chỉnh biểu đồ"><div class="panel-head"><h2>Tùy chỉnh</h2><small>CHART EDITOR</small></div>
+<div class="tabs" role="tablist" aria-label="Tùy chỉnh"><button type="button" id="tab-design" role="tab" aria-selected="true" aria-controls="pane-design" data-pane="design">Thiết kế</button><button type="button" id="tab-content" role="tab" aria-selected="false" aria-controls="pane-content" data-pane="content" tabindex="-1">Nội dung</button><button type="button" id="tab-data" role="tab" aria-selected="false" aria-controls="pane-data" data-pane="data" tabindex="-1">Dữ liệu</button></div>
+<form id="chart-form">
+<section class="pane" id="pane-design" role="tabpanel" aria-labelledby="tab-design">
+<div class="field"><label for="basis" class="field-label-basis">Đơn vị hiển thị</label><input type="text" id="basis" readonly value="% · Tỷ lệ trên số mục"><small id="basis-help" class="help">Đơn vị được đặt theo nhóm dữ liệu.</small></div>
+<div class="row"><div class="field"><label for="sample-size">Số trường hợp N</label><input type="number" id="sample-size" min="1" max="1000000" step="1" value="100"></div><div class="field"><label for="decimals">Số chữ số thập phân</label><select id="decimals"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></div></div>
+<div class="field"><span class="field-label" id="theme-label">Bảng màu</span><div class="themes" role="radiogroup" aria-labelledby="theme-label"><label class="theme"><input type="radio" name="theme" value="jade" checked><span class="name">Ngọc · 玉</span><span class="swatches" aria-hidden="true"><i style="--c:#187c68"></i></span></label><label class="theme"><input type="radio" name="theme" value="vermilion"><span class="name">Son · 朱</span><span class="swatches" aria-hidden="true"><i style="--c:#b84334"></i></span></label><label class="theme"><input type="radio" name="theme" value="gold"><span class="name">Vàng · 金</span><span class="swatches" aria-hidden="true"><i style="--c:#986a25"></i></span></label></div></div>
+<div class="row"><div class="field"><label for="aspect">Khung ảnh</label><select id="aspect"><option value="classic">4:3</option><option value="wide">16:9</option><option value="square">1:1</option></select></div><div class="field"><label for="export-scale">Độ nét PNG</label><select id="export-scale"><option value="1">1× · 1.600 px</option><option value="2" selected>2× · 3.200 px</option><option value="3">3× · 4.800 px</option></select></div></div>
+<p id="method-help" class="method-note">Mỗi trường hợp chỉ thuộc một thành phần trong nhóm này.</p>
+</section>
+<section class="pane" id="pane-content" role="tabpanel" aria-labelledby="tab-content" hidden>
+<div class="field"><label for="chart-title-input">Tiêu đề tiếng Trung</label><textarea id="chart-title-input" class="han" lang="zh-CN" rows="2" maxlength="120"></textarea></div>
+<div class="field"><label for="chart-source">Nguồn dữ liệu</label><input type="text" id="chart-source" value="作者根据成语编码数据整理制作" maxlength="240"><small class="help">Nguồn được căn giữa ngay dưới tên hình.</small></div>
+<div class="field"><label for="method-note">Chú thích phương pháp trên ảnh</label><textarea id="method-note" class="readonly-note han" lang="zh-CN" rows="4" readonly></textarea><small class="help">Tự cập nhật theo đơn vị và quy tắc thống kê của từng nhóm.</small></div>
+<p class="help">Tên thành phần lấy từ Excel. Các mã XSM, XME, XCV, MDF, YPM không xuất hiện trên biểu đồ.</p>
+</section>
+<section class="pane" id="pane-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+<div class="field"><label for="csv-data">Tên thành phần và tần suất</label><textarea id="csv-data" class="data-text" rows="10" spellcheck="false" aria-describedby="csv-help"></textarea><small id="csv-help" class="help">Cột đầu là tên; cột sau là tần suất. Trang hiển thị % hoặc số lần theo nhóm. Cột % có sẵn, nếu có, sẽ được tính lại từ tần suất. Có thể dán bảng từ Excel.</small></div>
+<div class="action-row"><button type="button" class="small-btn" id="import-csv">↑ Nhập CSV</button><button type="button" class="small-btn" id="download-csv">↓ Tải bảng số liệu</button><button type="button" class="small-btn" id="reset-current">Khôi phục nhóm</button></div><input type="file" id="file-input" class="sr-only" tabindex="-1" accept=".csv,.tsv,.txt,text/csv,text/tab-separated-values,text/plain" aria-label="Chọn file CSV">
+<div id="table-preview" class="table-preview" aria-live="polite"></div>
+</section>
+</form><div class="aside-foot"><span>●</span> Thay đổi được lưu trên trình duyệt của bạn.</div></aside>
+<section class="preview" id="chart-view" role="tabpanel" aria-labelledby="group-semantic">
+<div class="panel"><div class="preview-toolbar"><div class="preview-label"><strong id="view-name">Bản xem trước</strong><small id="resolution-label">PNG 3.200 × 2.400 px</small></div><div class="exports"><button type="button" class="export-secondary" id="export-svg" disabled>Tải SVG</button><button type="button" class="primary" id="export-png" disabled>↓ Tải PNG</button></div></div>
+<div class="export-options"><label for="title-mode">Ảnh tải về<select id="title-mode"><option value="with">Có tiêu đề</option><option value="without">Không có tiêu đề</option></select></label><p>Áp dụng cho PNG, SVG và ZIP. Nguồn, đơn vị và số liệu được giữ lại ở cả hai lựa chọn.</p></div>
+<div class="chart-stage" id="chart-stage"><div class="chart-holder" id="chart-holder"></div></div>
+<div class="preview-footer"><span id="status" class="status" role="status" aria-live="polite">Đang chuẩn bị font tiếng Trung…</span><button type="button" id="fullscreen">Mở toàn màn hình ↗</button></div>
+<div class="bulk-row"><small>Tải bộ sáu hình theo thiết kế đang chọn.</small><div class="action-row"><button type="button" class="small-btn" id="download-all-svg" disabled>6 SVG · ZIP</button><button type="button" class="small-btn" id="download-all-png" disabled>6 PNG · ZIP</button></div></div>
+</div>
+<details class="bottom-details"><summary>Đơn vị và dữ liệu nguồn</summary><div class="audit"><table class="audit-table"><thead><tr><th>Nhóm</th><th>Tổng</th><th>Đơn vị</th></tr></thead><tbody><tr><td class="han">成语的语义分类</td><td>100</td><td>%</td></tr><tr><td class="han">成语意义建构机制</td><td>100</td><td>%</td></tr><tr><td class="han">文化价值</td><td>101</td><td>次</td></tr><tr><td class="han">话语功能</td><td>229</td><td>次</td></tr><tr><td class="han">政治信息</td><td>143</td><td>次</td></tr><tr><td class="han">成语的来源分类</td><td>100</td><td>%</td></tr></tbody></table></div><div class="audit-note"><p>Ba nhóm 文化价值, 话语功能 và 政治信息 giữ số đếm trực tiếp từ cột tần suất của Excel, với đơn vị 次. Hai nhóm đầu dùng phần trăm trên 100 mục.</p><p>Nhóm nguồn mới có 2, 66, 18 và 14 mục. Danh sách gồm đầy đủ STT 1–100, không thiếu hoặc trùng STT, khớp từng biểu đạt trong Excel. Các biểu đạt giống nhau ở STT khác nhau được giữ riêng theo bảng bạn cung cấp.</p><p>Mẫu trình bày: tên hình “图1…” in đậm, căn giữa dưới biểu đồ; nguồn đặt ngay dưới tên hình. Số đếm và phần trăm được phân biệt bằng đơn vị trên trục và tại mỗi thanh.</p></div></details>
+</section>
+</main><footer class="bottom"><span>成语研究 · Sáu biểu đồ · PNG và SVG</span><span>Xử lý dữ liệu trên thiết bị</span></footer>
+</div><div class="toast" id="toast" role="status" hidden></div><noscript><p>Hãy bật JavaScript để sử dụng các nút tải ảnh.</p></noscript>
+<script src="assets/font-data.js"></script>
+<script src="assets/vendor/opentype.min.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/js/chart-core.js"></script>
+<script src="assets/js/composition-model.js"></script>
+<script src="assets/js/publication-renderer.js"></script>
+<script src="assets/js/zip-core.js"></script>
+<script src="assets/js/composition-app.js"></script>
+</body></html>
